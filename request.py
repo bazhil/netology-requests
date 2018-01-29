@@ -23,11 +23,40 @@ def translate_it(text):
         'text': text,
     }
     response = requests.get(url, params=params).json()
-    return ' '.join(response.get('text', []))
+    print(' '.join(response.get('text', [])))
 
-    text_de=open('text_de.txt', 'w')
+    text_de = open('text_de.txt', 'w')
     text_de.write(' '.join(response.get('text', [])))
     text_de.close()
     text.close()
+
+    text = open('ES.txt', 'r')
+    params = {
+        'key': key,
+        'lang': 'es-ru',
+        'text': text,
+    }
+    response = requests.get(url, params=params).json()
+    print(' '.join(response.get('text', [])))
+
+    text_es = open('text_es.txt', 'w')
+    text_es.write(' '.join(response.get('text', [])))
+    text_es.close()
+    text.close()
+
+    text = open('FR.txt', 'r')
+    params = {
+        'key': key,
+        'lang': 'fr-ru',
+        'text': text,
+    }
+    response = requests.get(url, params=params).json()
+    print(' '.join(response.get('text', [])))
+
+    text_fr = open('text_fr.txt', 'w')
+    text_fr.write(' '.join(response.get('text', [])))
+    text_fr.close()
+    text.close()
+
 a = translate_it('Привет')
 print(a)
