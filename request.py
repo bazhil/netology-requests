@@ -23,12 +23,10 @@ def translate_it(text):
         'key': key,
         'lang': 'de-ru',
         'text': text,
-        'text_de': text_de
     }
 
     response = requests.get(url, params=params).json()
     print(' '.join(response.get('text', [])))
-
 
     text_de.write(' '.join(response.get('text', [])))
     text_de.close()
@@ -40,8 +38,8 @@ def translate_it(text):
         'key': key,
         'lang': 'es-ru',
         'text': text,
-        'text_es': text_es
     }
+
     response = requests.get(url, params=params).json()
     print(' '.join(response.get('text', [])))
 
@@ -55,8 +53,8 @@ def translate_it(text):
         'key': key,
         'lang': 'fr-ru',
         'text': text,
-        'text_fr': text_fr,
     }
+
     response = requests.get(url, params=params).json()
     print(' '.join(response.get('text', [])))
 
